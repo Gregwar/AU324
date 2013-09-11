@@ -1,8 +1,10 @@
 #include <iostream>
 #include <stdio.h>
 #include "Robot.h"
+#include <opencv2/opencv.hpp>
 
 using namespace std;
+using namespace cv;
 
 /**
  * Fonction de démonstration
@@ -29,7 +31,15 @@ void demo()
     }
 }
 
-int main()
+void demoCV()
 {
-    demo();
+    CvCapture *pCapturedImage = cvCreateCameraCapture(1);
+    IplImage *pSaveImg = cvQueryFrame(pCapturedImage);
+    cvSaveImage("test.jpg", pSaveImg); 
+}
+
+int main(int argc, char *argv[])
+{
+    // demoRobot();
+    demoCV();
 }
