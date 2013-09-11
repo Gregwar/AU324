@@ -33,10 +33,11 @@ void demo()
 
 void demoCV()
 {
-    CvCapture *pCapturedImage = cvCreateCameraCapture(0);
-    IplImage *pSaveImg = cvQueryFrame(pCapturedImage);
-    cvSaveImage("test.jpg", pSaveImg);
-    cvReleaseImage(&pSaveImg);
+    CvCapture *capture = cvCreateCameraCapture(CV_CAP_ANY);
+    IplImage *image = cvQueryFrame(capture);
+    cvSaveImage("test.jpg", image);
+    cvReleaseImage(&image);
+    cvReleaseCapture(&capture);
 }
 
 int main(int argc, char *argv[])
