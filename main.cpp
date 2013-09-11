@@ -33,7 +33,7 @@ void demo()
 
 void demoCV()
 {
-    CvCapture *pCapturedImage = cvCreateCameraCapture(1);
+    CvCapture *pCapturedImage = cvCreateCameraCapture(0);
     IplImage *pSaveImg = cvQueryFrame(pCapturedImage);
     cvSaveImage("test.jpg", pSaveImg); 
 }
