@@ -9,7 +9,7 @@ using namespace cv;
 /**
  * Fonction de démonstration
  */
-void demo()
+void demoRobot()
 {
     Robot robot;
     while (true) {
