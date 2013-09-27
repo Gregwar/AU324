@@ -33,11 +33,16 @@ void demoRobot()
 
 void demoCV()
 {
-    CvCapture *capture = cvCreateCameraCapture(CV_CAP_ANY);
-    IplImage *image = cvQueryFrame(capture);
-    cvSaveImage("test.jpg", image);
-    cvReleaseImage(&image);
-    cvReleaseCapture(&capture);
+    VideoCapture cap(0);
+
+    if (!cap.isOpened()) {
+        cout << "Unable to open the device" << endl;
+        return;
+    }   
+
+    Mat frame;
+    cap >> frame;
+    imwrite("test.jpg", frame);
 }
 
 int main(int argc, char *argv[])
