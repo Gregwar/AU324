@@ -7,7 +7,7 @@ using namespace std;
 
 Robot::Robot()
 {
-    port.Open("/dev/ttyUSB0", 500000);
+    port.Open(SERIAL_PORT, SERIAL_BAUDRATE);
     char c;
     while (port.Read(&c, 1) <= 0) {
         sleep(1);
